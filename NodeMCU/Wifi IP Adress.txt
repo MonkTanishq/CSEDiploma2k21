@@ -1,0 +1,26 @@
+#include <ESP8266WiFi.h>  
+#include <WiFiClient.h>  
+const char* ssid = "WiFiName";  //wifi name
+const char* password = "Password";  //wifi passowrd
+void setup()  
+{  
+  Serial.begin(115200);  
+  delay(10);
+ }
+ void loop()
+ {
+  Serial.println();  
+  Serial.println();  
+  Serial.print("Connecting to ");  
+  Serial.println(ssid);  
+  WiFi.begin(ssid, password);  
+  while (WiFi.status() != WL_CONNECTED)  
+  {  
+   delay(500);  
+   Serial.print(".");  
+  }  
+  Serial.println("");  
+  Serial.println("WiFi connected");   
+  Serial.println(WiFi.localIP());  // Print the IP address   
+ }
+ 

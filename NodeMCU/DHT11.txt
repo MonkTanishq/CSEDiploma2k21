@@ -1,0 +1,25 @@
+#include <DHT.h>//include DHT library
+#define DHTPIN D5//define sensor pin
+#define DHTTYPE DHT11//define DHT Sensor type
+DHT dht(DHTPIN, DHTTYPE);//crate an object.
+int temperature, humidity;//
+void setup()
+{
+  Serial.begin(115200);  
+}
+void loop()
+{
+  temperature = dht.readTemperature();
+  humidity = dht.readHumidity();
+  Serial.print("Temperature Value is :");
+  Serial.print(temperature);
+  Serial.println("C");
+  Serial.print("Humidity Value is :");
+  Serial.print(humidity);
+  Serial.println("%");
+  }
+
+//Uint8--Unsigned and 8 bit.
+//API  --Application Program Interface.
+//Get  --Data is visible.
+//Post --Data is encoded in a string. 
